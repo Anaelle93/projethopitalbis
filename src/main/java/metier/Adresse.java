@@ -2,6 +2,9 @@ package metier;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Adresse implements Serializable{
 
 	
@@ -10,6 +13,9 @@ public class Adresse implements Serializable{
 	private String cp;
 	private String ville;
 	
+	public Adresse() {
+	}
+
 	
 	public Adresse(int numero, String voie, String cp, String ville) {
 		this.numero = numero;

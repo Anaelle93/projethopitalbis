@@ -2,9 +2,19 @@ package metier;
 
 import java.time.LocalDate;
 
-public class Visite {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
+@Entity
+public class Visite {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	@OneToMany
 	private Patient patient;
 	private Medecin medecin;
 	private double prix=20;
@@ -12,6 +22,9 @@ public class Visite {
 	private int salle;
 	
 	
+	public Visite() {
+	}
+
 	public Visite(int id, Patient patient, Medecin medecin, double prix, String date, int salle) {
 		this.id = id;
 		this.patient = patient;
