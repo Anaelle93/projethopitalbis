@@ -16,6 +16,7 @@ public class Visite {
 	private int id;
 	@OneToMany
 	private Patient patient;
+	@OneToMany
 	private Medecin medecin;
 	private double prix=20;
 	private LocalDate date;
