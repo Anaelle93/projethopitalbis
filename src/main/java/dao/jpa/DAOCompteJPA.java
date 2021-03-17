@@ -8,6 +8,7 @@ import javax.persistence.Query;
 import dao.IDAOCompte;
 import metier.Hopital;
 import metier.Patient;
+import metier.Visite;
 import metier.Compte;
 
 public class DAOCompteJPA implements IDAOCompte {
@@ -73,11 +74,16 @@ public class DAOCompteJPA implements IDAOCompte {
 
 	@Override
 	public Compte checkConnect(String log, String pass) {
-		// TODO Auto-generated method stub
-		return null;
+		EntityManager em = Hopital.get_instance().getEmf().createEntityManager();
+		Query myQuery=em.createQuery("from compte c WHERE c.nom=:log AND c.password=:pass",Compte.class);
+		myQuery.setParameter("nom",log);
+		myQuery.setParameter("password",pass);
+		return (Compte) myQuery.getSingleResult();
+		
 	}
 
 
+	
 }
 
 

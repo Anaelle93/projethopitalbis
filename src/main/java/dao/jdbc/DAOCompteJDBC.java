@@ -200,4 +200,12 @@ public class DAOCompteJDBC implements IDAOCompte{
 		return compte;
 	}
 
+
+
+	@Override
+	public Compte save(Compte Object) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

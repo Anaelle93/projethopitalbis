@@ -73,16 +73,11 @@ public class DAOVisiteJPA  implements IDAOVisite {
 
 
 	@Override
-	public void save(Visite d) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
 	public List<Visite> selectAllByPatient(int secu) {
-		// TODO Auto-generated method stub
-		return null;
+		EntityManager em = Hopital.get_instance().getEmf().createEntityManager();
+		Query myQuery=em.createQuery("from visite v WHERE v.id=:id_patient",Visite.class);
+		myQuery.setParameter("id_patient",secu);
+		return (List<Visite>) myQuery.getResultStream();
 	}
 
 

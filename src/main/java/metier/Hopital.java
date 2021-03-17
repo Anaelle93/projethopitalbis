@@ -3,6 +3,8 @@ package metier;
 import java.util.LinkedList;
 
 import javax.persistence.Entity;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 import dao.IDAOCompte;
 import dao.IDAOPatient;
@@ -22,6 +24,7 @@ public class Hopital {
 	private IDAOVisite daoV = new DAOVisiteJDBC();
 	boolean pause=false;
 	
+	private EntityManagerFactory emf = Persistence.createEntityManagerFactory("hopital");
 	private static Hopital _instance=null; 
 	
 	private Hopital() {}
@@ -35,6 +38,15 @@ public class Hopital {
 
 	}
 
+	public EntityManagerFactory getEmf() {
+        return emf;
+    }
+
+
+    public void closeEmf() 
+    {
+        emf.close();
+    }
 	
 	public LinkedList<Patient> getFileAttente() {
 		return fileAttente;

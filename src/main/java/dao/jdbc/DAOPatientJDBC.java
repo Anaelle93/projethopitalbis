@@ -153,4 +153,12 @@ public class DAOPatientJDBC implements IDAOPatient{
 
 
 
+	@Override
+	public Patient save(Patient Object) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
 }

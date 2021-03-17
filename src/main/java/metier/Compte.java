@@ -4,12 +4,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 
 @Entity
-public abstract class Compte {
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+public class Compte {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+
 	protected int id;
 	protected String login;
 	protected String password;
