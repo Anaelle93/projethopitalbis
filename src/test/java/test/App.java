@@ -258,6 +258,8 @@ public class App {
 	
 	
 	public static void main(String[] args) {
+		Hopital.get_instance().getEmf().createEntityManager();
 		accueil();	
+		
 	}
 }

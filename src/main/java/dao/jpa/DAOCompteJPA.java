@@ -75,9 +75,9 @@ public class DAOCompteJPA implements IDAOCompte {
 	@Override
 	public Compte checkConnect(String log, String pass) {
 		EntityManager em = Hopital.get_instance().getEmf().createEntityManager();
-		Query myQuery=em.createQuery("from compte c WHERE c.nom=:log AND c.password=:pass",Compte.class);
-		myQuery.setParameter("nom",log);
-		myQuery.setParameter("password",pass);
+		Query myQuery=em.createQuery("Select c from Compte c WHERE c.login=:login AND c.password=:pass",Compte.class);
+		myQuery.setParameter("login",log);
+		myQuery.setParameter("pass",pass);
 		return (Compte) myQuery.getSingleResult();
 		
 	}
