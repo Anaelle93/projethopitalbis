@@ -194,4 +194,17 @@ public class DAOVisiteJDBC implements IDAOVisite{
 
 
 
+
+	@Override
+	public void save(Visite d) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	
+
+
+
 }

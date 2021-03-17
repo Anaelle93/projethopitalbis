@@ -5,79 +5,88 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-import dao.IDAOCompte;
+import dao.IDAOVisite;
 import metier.Hopital;
-import metier.Patient;
-import metier.Compte;
+import metier.Visite;
 
-public class DAOCompteJPA implements IDAOCompte {
+public class DAOVisiteJPA  implements IDAOVisite {
 
 	
 
 	@Override
-	public Compte findById(Integer id) {
+	public Visite findById(Integer id) {
 		EntityManager em = Hopital.get_instance().getEmf().createEntityManager();
-		Compte compte = em.find(Compte.class, id);
+		Visite visite = em.find(Visite.class, id);
 		em.close();
-		return compte;
+		return visite;
 	}
 
-	@Override
-	public List<Compte> findAll() {
-		EntityManager em = Hopital.get_instance().getEmf().createEntityManager();
-		Query myQuery=em.createQuery("SELECT c from compte c",Compte.class);
-		
-		return null;
 	
-	}
-
-
 	@Override
-	public Compte save(Compte compte) {
+	public Visite save(Visite visite) {
 		EntityManager em = Hopital.get_instance().getEmf().createEntityManager();
 		em.getTransaction().begin();
 		
-		compte=em.merge(compte);
+		visite=em.merge(visite);
 		
 		em.getTransaction().commit();
 		em.close();
-		return compte;
+		return visite;
 	}
 
 	@Override
-	public void delete(Compte compte) {
+	public void delete(Visite visite) {
 		
 		EntityManager em = Hopital.get_instance().getEmf().createEntityManager();
 		em.getTransaction().begin();
 		
-		compte=em.merge(compte);
-		em.remove(compte);
+		visite=em.merge(visite);
+		em.remove(visite);
 		
 		em.getTransaction().commit();
 		em.close();
 		
 	}
 
-	@Override
-	public void insert(Compte d) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
-	public void update(Compte d) {
-		// TODO Auto-generated method stub
+	public List<Visite> findAll() {
+		EntityManager em = Hopital.get_instance().getEmf().createEntityManager();
+		Query myQuery=em.createQuery("SELECT v from visite v",Visite.class);
 		
+		return null;
 	}
 
 
 	@Override
-	public Compte checkConnect(String log, String pass) {
+	public void insert(Visite d) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void update(Visite d) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void save(Visite d) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public List<Visite> selectAllByPatient(int secu) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
+	
 
 
 }
-
-

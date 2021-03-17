@@ -3,18 +3,20 @@ package dao.jpa;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 import dao.IDAOPatient;
 import metier.Hopital;
 import metier.Patient;
+import metier.Visite;
 
-public class DAOPatient implements IDAOPatient {
+public class DAOPatientJPA implements IDAOPatient {
 
 	
 
 		@Override
 		public Patient findById(Integer id) {
-			EntityManager em = Hopital.getInstance().getEmf().createEntityManager();
+			EntityManager em = Hopital.get_instance().getEmf().createEntityManager();
 			Patient patient = em.find(Patient.class, id);
 			em.close();
 			return patient;
@@ -22,14 +24,16 @@ public class DAOPatient implements IDAOPatient {
 
 		@Override
 		public List<Patient> findAll() {
-			// TODO Auto-generated method stub
+			EntityManager em = Hopital.get_instance().getEmf().createEntityManager();
+			Query myQuery=em.createQuery("SELECT p from patient v",Patient.class);
+			
 			return null;
 		}
 
 
 		@Override
 		public Patient save(Patient patient) {
-			EntityManager em = Hopital.getInstance().getEmf().createEntityManager();
+			EntityManager em = Hopital.get_instance().getEmf().createEntityManager();
 			em.getTransaction().begin();
 			
 			patient=em.merge(patient);
@@ -42,7 +46,7 @@ public class DAOPatient implements IDAOPatient {
 		@Override
 		public void delete(Patient patient) {
 			
-			EntityManager em = Hopital.getInstance().getEmf().createEntityManager();
+			EntityManager em = Hopital.get_instance().getEmf().createEntityManager();
 			em.getTransaction().begin();
 			
 			patient=em.merge(patient);
@@ -52,6 +56,20 @@ public class DAOPatient implements IDAOPatient {
 			em.close();
 			
 		}
+
+		@Override
+		public void insert(Patient d) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void update(Patient d) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		
 
 	
 
