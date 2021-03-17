@@ -8,25 +8,30 @@
 		transaction-type="RESOURCE_LOCAL">
 		<!-- implementation de JPA -->
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<class>metier.Compte</class>
+		<class>metier.Medecin</class>
+		<class>metier.Secretaire</class>
+		<class>metier.Visite</class>
+		<class>metier.Patient</class>
+		
 
 		<properties>
 			<property name="hibernate.connection.driver"
 				value="com.mysql.jdbc.Driver" />
 			<property name="hibernate.connection.url"
-				value="jdbc:mysql://localhost:3306/eshop?serverTimezone=UTC" />
+				value="jdbc:mysql://localhost:3306/hopital?serverTimezone=UTC" />
 			<property name="hibernate.connection.user" value="root" />
-			<property name="hibernate.connection.password"
-				value="" />
+			<property name="hibernate.connection.password" value="" />
 			<property name="hibernate.dialect"
 				value="org.hibernate.dialect.MySQL5InnoDBDialect" />
 			<!-- validate, create, update -->
-			<property name="hibernate.hbm2ddl.auto" value="validate" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.format_sql" value="true" />
 		</properties>
 	</persistence-unit>
-	
-	
-	
+
+
+
 
 </persistence>

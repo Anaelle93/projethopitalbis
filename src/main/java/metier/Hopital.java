@@ -12,6 +12,9 @@ import dao.IDAOVisite;
 import dao.jdbc.DAOCompteJDBC;
 import dao.jdbc.DAOPatientJDBC;
 import dao.jdbc.DAOVisiteJDBC;
+import dao.jpa.DAOCompteJPA;
+import dao.jpa.DAOPatientJPA;
+import dao.jpa.DAOVisiteJPA;
 
 
 public class Hopital {
@@ -19,9 +22,9 @@ public class Hopital {
 	private LinkedList<Patient> fileAttente=new LinkedList<Patient>();
 	private Patient lastPatient=null;
 	private Compte connected=null;
-	private IDAOCompte daoC = new DAOCompteJDBC();
-	private IDAOPatient daoP = new DAOPatientJDBC();
-	private IDAOVisite daoV = new DAOVisiteJDBC();
+	private IDAOCompte daoC = new DAOCompteJPA();
+	private IDAOPatient daoP = new DAOPatientJPA();
+	private IDAOVisite daoV = new DAOVisiteJPA();
 	boolean pause=false;
 	
 	private EntityManagerFactory emf = Persistence.createEntityManagerFactory("hopital");

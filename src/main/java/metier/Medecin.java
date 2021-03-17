@@ -4,10 +4,12 @@ import java.util.ArrayList;
 
 import java.util.List;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
 @Entity
+@DiscriminatorValue("medecin")
 public class Medecin extends Compte {
 
 	private int salle;
