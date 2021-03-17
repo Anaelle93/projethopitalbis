@@ -2,6 +2,8 @@ package metier;
 
 import java.util.LinkedList;
 
+import javax.persistence.Entity;
+
 import dao.IDAOCompte;
 import dao.IDAOPatient;
 import dao.IDAOVisite;
@@ -10,7 +12,7 @@ import dao.jdbc.DAOPatientJDBC;
 import dao.jdbc.DAOVisiteJDBC;
 
 
-
+@Entity
 public class Hopital {
 	
 	private LinkedList<Patient> fileAttente=new LinkedList<Patient>();

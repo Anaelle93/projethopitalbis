@@ -2,14 +2,23 @@ package metier;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Patient implements Serializable {
 
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String nom,prenom,tel;
 	private Adresse adresse;
 	
-	
+	public Patient() {
+	}
+
 	public Patient(int secu, String nom, String prenom) {
 		this.id = secu;
 		this.nom = nom;
