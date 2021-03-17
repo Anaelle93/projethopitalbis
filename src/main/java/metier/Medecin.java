@@ -5,11 +5,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Medecin extends Compte {
 
 	private int salle;
+	@OneToMany
 	private List<Visite> visites=new ArrayList();
 
 	public Medecin() {
