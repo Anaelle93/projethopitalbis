@@ -12,7 +12,6 @@ import dao.jdbc.DAOPatientJDBC;
 import dao.jdbc.DAOVisiteJDBC;
 
 
-@Entity
 public class Hopital {
 	
 	private LinkedList<Patient> fileAttente=new LinkedList<Patient>();
